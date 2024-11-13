@@ -20,6 +20,8 @@ return new class extends Migration
             $table->enum('role',['admin','doctor','patient'])->default('patient');
             $table->boolean('is_active')->default(true);
             $table->timestamp('email_verified_at')->nullable();
+            $table->unsignedBigInteger('major_id')->nullable();
+            $table->foreign('major_id')->references('id')->on('majors')->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
         });
