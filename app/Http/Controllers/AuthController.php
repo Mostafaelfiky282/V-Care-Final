@@ -26,6 +26,25 @@ class AuthController extends Controller
         
     }
 
+
+
+    public function login(){
+        return view("auth.login");
+    }
+    public function dologin(Request $request){
+        $date = $validatedData = $request->validate([
+             'email' =>'required|string|email|max:255',
+             'password' =>'required'
+         ]);
+         if(Auth::attempt($date)){
+            $user = User::where('email' ,$date['email'])->first();
+            Auth::login($user);
+            return redirect('/')->with('success', "Logged In Successfully");
+         }else{
+            return redirect()->back()->withErrors(["Login Failed"=>"Invalid Email or Password"]);
+         }
+        }
+         
     public function logout(){
         Auth::logout();
         return redirect('/')->with('success', "Logged Out Successfully");

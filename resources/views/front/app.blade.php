@@ -41,15 +41,14 @@
                             href="{{ url('contact') }}">Contact</a>
                             @guest
                             <a type="button" class="btn btn-outline-light navigation--button"
-                            href="{{ url('login') }}">login</a>
+                            href="{{route('login')}}">login</a>
                             <a type="button" class="btn btn-outline-light navigation--button"
                             href="{{route('auth.register')}}">Register</a>
                             @endguest
-
                             @auth
                                 <form action="{{route('auth.logout')}}" method="POST">
                                      @csrf
-                                     <button type="submit" class="btn btn-outline-light">Logout</button>
+                                     <button type="submit" class="btn btn-danger">Logout</button>
                                 </form>
                             @endauth
                     </div>
@@ -100,8 +99,11 @@
                         <a href="{{ url('majors') }}" class="link text-white">Majors</a>
                         <a href="{{ url('doctors') }}" class="link text-white">Doctors</a>
                         <a href="{{ url('contact') }}" class="link text-white">Contact</a>
+                        @guest
                         <a href="{{ url('login') }}" class="link text-white">Login</a>
                         <a href="{{ url('register') }}" class="link text-white">Register</a>
+                        @endguest
+                      
                         {{-- <a href="{{ url('add_major') }}" class="link text-white">Add Major</a> --}}
                     </div>
                 </div>

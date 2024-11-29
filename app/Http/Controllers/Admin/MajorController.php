@@ -35,12 +35,10 @@ class MajorController extends Controller
 
     public function edit(Major $major)
     {
-        // $major = Major::findOrFail($id);
         return view('admin.majors.edit', compact('major'));
     }
     public function update(Request $request, Major $major)
     {
-        // $major = Major::findOrFail($id);
         request()->validate([
             "name" => "required",
             "string",

@@ -9,10 +9,12 @@
         </nav>
         <div class="row">
             <div class="col-6 mx-auto">
-                <form action="{{route('auth.store')}}" method="POST" class="my-5 border p-3" enctype="multipart/form-data">
+             
+                <form action="{{route('auth.do.login')}}" method="POST" class="my-5 border p-3" enctype="multipart/form-data">
+                    <h1 class="text-center"> Welcome Back</h1>
                     @csrf
-                    {{-- <x-error></x-error> --}}
-                    <x-success></x-success>
+                    {{-- <x-success></x-success>
+                    <x-error></x-error>  --}}
                     <div class="mb-3">
                         <label>Email</label>
                         <input type="text" name="email" class="form-control">

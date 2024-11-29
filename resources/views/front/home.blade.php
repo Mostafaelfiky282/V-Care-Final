@@ -10,12 +10,14 @@
                     <h4 class="card-title fw-bold text-center">{{$major->name}}</h4>
                     <a href="{{ url('majors/'.$major->id."/doctors") }}" class="btn btn-outline-primary card-button">Browse Doctors</a>
                     @auth 
+                    @if(auth()->user()->role=='admin')
                     <a href="{{ url('majors/'.$major->id."/edit") }}" class="btn btn-outline-warning card-button">Edit Major</a>
                     <form action="{{url('majors/'.$major->id)}}" method="POST" class="col-12">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger card-button">Delete Major</button>
                     </form>
+                    @endif
                     @endauth
                 </div>
             </div>
@@ -35,7 +37,7 @@
                             <div class="card-body d-flex flex-column gap-1 justify-content-center">
                                 <h4 class="card-title fw-bold text-center">{{$doctor->name}}</h4>
                                 <h6 class="card-title fw-bold text-center">{{$doctor->major->name}}</h6>
-                                <a href="{{ url('doctor') }}" class="btn btn-outline-primary card-button">Book an
+                                <a href="{{ route('appointments.create',$doctor->id) }}" class="btn btn-outline-primary card-button">Book an
                                     appointment</a>
                                 </div>
                             </div>
