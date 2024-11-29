@@ -37,6 +37,8 @@
                             href="{{ url('majors') }}">majors</a>
                         <a type="button" class="btn btn-outline-light navigation--button"
                             href="{{ url('doctors') }}">Doctors</a>
+                        <a type="button" class="btn btn-outline-light navigation--button"
+                            href="{{ url('contact') }}">Contact</a>
                             @guest
                             <a type="button" class="btn btn-outline-light navigation--button"
                             href="{{ url('login') }}">login</a>
