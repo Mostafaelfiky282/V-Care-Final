@@ -1,5 +1,6 @@
 @extends('front.app')
 @section('content')
+
     <div class="container">
         <h2 class="h1 fw-bold text-center my-4">majors</h2>
         <div class="d-flex flex-wrap gap-4 justify-content-center">

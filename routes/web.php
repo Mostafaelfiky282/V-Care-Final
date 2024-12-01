@@ -9,14 +9,12 @@ use App\Http\Controllers\MajorsController;
 
 
 Route::get('/', [HomeController::class, 'index'])->name('/');
-Route::get('/majors', [MajorsController::class, 'index']);
+Route::get('/majors', [MajorsController::class, 'index'])->middleware('can:viewAny,App\Models\Major');
 Route::get('/majors/{major}/doctors', [MajorsController::class, 'doctors']);
 
-Route::get('/contact', [ContactController::class, 'index']);
+Route::get('/contact', [ContactController::class, 'index'])->can('send-message');
 Route::post('/send-message', [ContactController::class, 'sendMessage']);
 
-// Route::get('/add_major', [MajorsController::class, 'major']);
-// Route::Post('/add-major', [MajorsController::class, 'addmajor']);
 Route::get('/doctors', [DoctorsController::class, 'index']);
 Route::middleware('auth')->group(function(){
     Route::get('/appoinments/{user}', [AppointmentController::class, 'create'])->name('appointments.create');

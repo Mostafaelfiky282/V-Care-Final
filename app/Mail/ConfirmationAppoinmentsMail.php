@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\appointemnt;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -16,9 +17,9 @@ class ConfirmationAppoinmentsMail extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct(public appointemnt $appointment)
     {
-        //
+        
     }
 
     /**

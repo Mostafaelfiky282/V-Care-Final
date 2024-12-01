@@ -1,12 +1,13 @@
 @extends('front.app')
 @section('content')
+{{-- @dd(auth()->user()); --}}
     <div class="container">
         <div class="row">
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="fw-bold my-4 h4">
                 <ol class="breadcrumb justify-content-center">
                     <li class="breadcrumb-item"><a class="text-decoration-none" href="{{ url('/') }}">Home</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Doctor</li>
-                    <li class="breadcrumb-item active" aria-current="page">{{auth()->user()->name}}</li>
+                    <li class="breadcrumb-item active" aria-current="page">{{auth()->user()->name ?? ''}}</li>
                 </ol>
             </nav>
             <x-success></x-success>
@@ -30,7 +31,7 @@
                     <div class="form-items">
                         <div class="mb-3">
                             <label class="form-label required-label" for="name">Name</label>
-                            <input type="text" name="name" value="{{auth()->user()->name}}" class="form-control" id="name" required />
+                            <input type="text" name="name" value="{{auth()->user()->name ?? ''}}" class="form-control" id="name" required />
                         </div>
                     
                         <div class="mb-3">
@@ -40,7 +41,7 @@
                     
                         <div class="mb-3">
                             <label class="form-label required-label" for="email">Email</label>
-                            <input type="email" name="email" value="{{auth()->user()->email}}" class="form-control" id="email" required />
+                            <input type="email" name="email" value="{{auth()->user()->email ?? ''}}" class="form-control" id="email" required />
                         </div>
                  
                     </div>

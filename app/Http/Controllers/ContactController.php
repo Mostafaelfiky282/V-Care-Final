@@ -1,18 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
 use App\Models\message;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class ContactController extends Controller
 {
     public function index()
     {
+        Gate::authorize('send-message');
         return view('front.contact');
     }
 
     public function sendMessage(Request $request)
-    {
+    {   
         $request->validate([
             'name' => 'required|string|min:5|max:255',
             'email' => 'required|string|email|min:5|max:255',

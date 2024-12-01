@@ -37,8 +37,11 @@
                             href="{{ url('majors') }}">majors</a>
                         <a type="button" class="btn btn-outline-light navigation--button"
                             href="{{ url('doctors') }}">Doctors</a>
-                        <a type="button" class="btn btn-outline-light navigation--button"
+                            @can('send-message')
+                                
+                            <a type="button" class="btn btn-outline-light navigation--button"
                             href="{{ url('contact') }}">Contact</a>
+                            @endcan
                             @guest
                             <a type="button" class="btn btn-outline-light navigation--button"
                             href="{{route('login')}}">login</a>
@@ -98,7 +101,9 @@
                         <a href="{{ url('/') }}" class="link text-white">Home</a>
                         <a href="{{ url('majors') }}" class="link text-white">Majors</a>
                         <a href="{{ url('doctors') }}" class="link text-white">Doctors</a>
+                        @can('send-message')
                         <a href="{{ url('contact') }}" class="link text-white">Contact</a>
+                        @endcan
                         @guest
                         <a href="{{ url('login') }}" class="link text-white">Login</a>
                         <a href="{{ url('register') }}" class="link text-white">Register</a>
