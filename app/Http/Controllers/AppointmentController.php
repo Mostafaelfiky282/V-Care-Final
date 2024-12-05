@@ -36,7 +36,7 @@ class AppointmentController extends Controller
         $request->validate([
             'name' => 'required','string','max:50','min:3',
             'email' => 'required','email','max:100',
-            'phone' => 'required','string','max:20','min:10'
+            'phone' => 'required','numeric','max:20','min:10'
         ]);
 
 

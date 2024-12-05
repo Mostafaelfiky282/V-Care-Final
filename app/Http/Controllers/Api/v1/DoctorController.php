@@ -10,6 +10,6 @@ class DoctorController extends Controller
 {
     public function index(){
         $doctors = User::where('role', 'doctor')->get();
-        return response()->json($doctors);
+        return $this->apiResponse($doctors);
     }
 }
